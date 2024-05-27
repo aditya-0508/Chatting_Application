@@ -153,7 +153,7 @@ public class Client implements ActionListener {
 	public static void main(String[] args) {
 		new Client();
 		try {
-			Socket s=new Socket("127.0.0.1",6001);//here socket is being created 
+			Socket s=new Socket("127.0.0.1",6001);//here socket is being created,after the connection is created with local host socket needs to be created
 			DataInputStream din=new DataInputStream(s.getInputStream());
 			dout=new DataOutputStream(s.getOutputStream());
 			

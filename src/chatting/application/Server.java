@@ -32,7 +32,7 @@ public class Server implements ActionListener {
 		back.setBounds(5, 20, 25, 25);
 		p1.add(back);
 		
-		back.addMouseListener(new MouseAdapter() {
+		back.addMouseListener(new MouseAdapter() {//arrow button mouse click
 			public void mouseClicked(MouseEvent ae) {
 				System.exit(0);
 			}
@@ -119,7 +119,7 @@ public class Server implements ActionListener {
 			vertical.add(right);
 			vertical.add(Box.createVerticalStrut(12));//creates the strut of each msgs
 		
-			a1.add(vertical,BorderLayout.PAGE_START);
+			a1.add(vertical,BorderLayout.PAGE_START);// will add the texts back to back in the panel
 			text.setText("");//will empty that frame once all msgs have been shared
 		
 			f.repaint();//these three are there to repaint the frame as the frame needs to be reloaded again so that the msg can be loaded after the another
@@ -160,7 +160,7 @@ public class Server implements ActionListener {
 			while(true) {//to accept in all messages
 				Socket s=skt.accept();
 				DataInputStream din=new DataInputStream(s.getInputStream());//to receive the messages
-				dout=new DataOutputStream(s.getOutputStream());
+				dout=new DataOutputStream(s.getOutputStream());//for sending messages
 				
 				while(true) {
 					String msg=din.readUTF();
@@ -168,7 +168,7 @@ public class Server implements ActionListener {
 					
 					JPanel left=new JPanel(new BorderLayout());
 					left.add(panel,BorderLayout.LINE_START);  
-					vertical.add(left);
+					vertical.add(left);//in left side for receivng the msgs (whihc needs to be read)
 					f.validate();
 				}
 			}
@@ -178,3 +178,4 @@ public class Server implements ActionListener {
 	}
 
 }
+//serversocket --> readutf and writeutf for reading and writing the messages (Socket Programming)
